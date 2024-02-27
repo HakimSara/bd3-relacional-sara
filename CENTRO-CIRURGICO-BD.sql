@@ -2,7 +2,7 @@ create database centro_cirurgico_bd;
 
 use centro_cirurgico_bd;
 
-create table tbl_especiaidade(
+create table tbl_especialidade(
 cod_especialidade int unsigned auto_increment primary key,
 nome_especialidade varchar(100) not null
 );
