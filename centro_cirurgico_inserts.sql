@@ -1,49 +1,70 @@
-create database centro_cirurgico_bd;
+#INSERINDO DADOS NA TABELA ESPECIALIDADES.
+INSERT INTO tbl_especialidade(nome_especialidade)
+VALUES ('NEUROLOGIA');
 
-use centro_cirurgico_bd;
+INSERT INTO tbl_especialidade(nome_especialidade)
+VALUES ('ORTOPEDIA');
 
-create table tbl_especiaidade(
-cod_especialidade int unsigned auto_increment primary key,
-nome_especialidade varchar(100) not null
-);
+INSERT INTO tbl_especialidade(nome_especialidade)
+VALUES ('CARDIOLOGIA');
 
-create table tbl_paciente(
-cod_paciente int unsigned auto_increment primary key,
-nome_paciente varchar(500) not null,
-telefone_paciente varchar(10),
-celular_paciente varchar(11) not null,
-email_paciente varchar(11) not null,
-nome_responsavel varchar(500) not null,
-telefone_responsavel varchar(11) not null
-);
+#INSERÇÃO DE DADOS NA TABELA DE PACIENTES.
 
-CREATE TABLE tbl_medico (
-    cod_medico INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    cod_especialidade INT UNSIGNED NOT NULL,
-    nome_medico VARCHAR(500) NOT NULL,
-    telefone_medico VARCHAR(10),
-    celular_medico VARCHAR(11) NOT NULL,
-    email_medico VARCHAR(11) NOT NULL
-);
+INSERT INTO TBL_PACIENTE(nome_paciente, telefone_paciente, celular_paciente, email_paciente, telefone_responsavel)
+VALUES ('AUGUSTO DOS ANJOS', '2587-9635', '2365-5897', 'augusto.anjos@gmail.com', '');
 
-create table tbl_insumo(
-cod_insumos int unsigned auto_increment primary key,
-cod_paciente int unsigned not null,
-nome_insumo varchar(100) not null,
-quantidade_insumo decimal(10,2)
-);
+INSERT INTO TBL_PACIENTE(nome_paciente, telefone_paciente, celular_paciente, email_paciente, telefone_responsavel)
+VALUES ('MARIO DE ANDRADE', '2357-9514', '5923-5769', 'mario.andrade@gmail.com', '');
 
-create table tbl_sala(
-cod_sala int unsigned auto_increment primary key,
-cod_especialidade int unsigned not null,
-nro_sala varchar(10) not null
-);
+INSERT INTO TBL_PACIENTE(nome_paciente, telefone_paciente, celular_paciente, email_paciente, telefone_responsavel)
+VALUES ('SANTOS DUMONT', '2357-2145', '2365-6987', 'santos.dumont@gmail.com', '');
 
-create table tbl_agenda(
-cod_agenda int unsigned auto_increment primary key,
-cod_sala int unsigned not null,
-cod_medico int unsigned not null,
-cod_paciente int unsigned not null,
-data_cirurgia varchar(10) not null,
-status_cirurgia enum('Agendado', 'Concluído', 'Cancelado')
-);
+INSERT INTO TBL_PACIENTE(nome_paciente, telefone_paciente, celular_paciente, email_paciente,  telefone_responsavel)
+VALUES ('ALBERT EINSTEIN', '2595-2587', '2354-8936', 'albert.einstein@gmail.com', '');
+
+INSERT INTO TBL_PACIENTE(nome_paciente, telefone_paciente, celular_paciente, email_paciente,  telefone_responsavel)
+VALUES ('NIKOLA TESLA', '3217-5324', '2587-9122', 'nikola.tesla@gmail.com', '');
+
+#INSERÇÃO DE DADOS NA TABELA DE MEDICOS.
+
+INSERT INTO TBL_MEDICO(cod_especialidade, nome_medico, email_medico, telefone_medico,
+ celular_medico)
+VALUES (1, 'JOÃO DA SILVA', 'joaosilva@gmail.com', '1234-5678', '7894-5612');
+
+INSERT INTO TBL_MEDICO(cod_especialidade, nome_medico, email_medico, telefone_medico,
+ celular_medico)
+VALUES (2, 'ANA MARIA', 'ana_mari@gmail.com', '1234-5678', '7894-5612');
+
+INSERT INTO TBL_MEDICO(cod_especialidade, nome_medico, email_medico, telefone_medico,
+ celular_medico)
+VALUES (3, 'CARLOS ALBERT', 'carlos.albert@gmail.com', '1234-5678', '7894-5612');
+
+INSERT INTO TBL_MEDICO(cod_especialidade, nome_medico, email_medico, telefone_medico,
+ celular_medico)
+VALUES (1, 'JUNIOR ALBERTO', 'j.alberto@gmail.com', '1234-5678', '7894-5612');
+
+#INSERÇÃO DE DADOS NA TABELA DE SALAS.
+INSERT INTO tbl_sala(nro_sala, cod_especialidade)
+VALUES ('SALA 01', 1);
+
+INSERT INTO tbl_sala(nro_sala, cod_especialidade)
+VALUES ('SALA 02', 2);
+
+INSERT INTO tbl_sala(nro_sala, cod_especialidade)
+VALUES ('SALA 03', 3);
+
+#INSERÇÃO DE DADOS NA TABELA DE AGENDAMENTOS.
+INSERT INTO tbl_agenda
+(cod_sala, cod_medico, cod_paciente, data_cirurgia, status_cirurgia)
+VALUES
+(1, 1, 1, '05/09/2017', 'AGENDADO');
+
+INSERT INTO tbl_agenda
+(cod_sala, cod_medico, cod_paciente, data_cirurgia, status_cirurgia)
+VALUES
+(1, 2, 1, '15/10/2017', 'AGENDADO');
+
+INSERT INTO tbl_agenda
+(cod_sala, cod_medico, cod_paciente, data_cirurgia, status_cirurgia)
+VALUES
+(1, 1, 1, '11/11/2017', 'AGENDADO');
